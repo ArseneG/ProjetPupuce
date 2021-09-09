@@ -6,7 +6,7 @@ require "Autoloader.php";
 Autoloader::register();
 if ($_POST['Password'] === $_POST['Vpassword'] AND !empty('Password') AND strlen($_POST['Password']) >= 8) {
 	$date = date('Y-m-d H:i:s');
-	$CryptedPW = crypt($_POST['Password']); 
+	$CryptedPW = password_hash($_POST['Password'],PASSWORD_DEFAULT); 
 	$CompteClient = new Client($_POST['FormName'],$_POST['FormFname'],$_POST['ForMail'], $_POST['FormAdresse'], $_POST['FormCp'], $_POST['FormVille'], $_POST['Bith_Date'], $date, $CryptedPW );
 	var_dump($CompteClient);
 	try {
