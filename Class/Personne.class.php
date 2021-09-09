@@ -1,15 +1,14 @@
 <?php
     abstract class Personne {
-        protected $Nom = 'testN';
-        protected $Prenom = 'testP';
-        protected $Mail = 'test@test.com';
-        protected $Adresse = '181 moyenne corniche des pugets';
-        protected $Cp = '06700';
-        protected $Ville = 'st laurent du var';
-        protected $DateDeNaissance = time();
-        protected $Id;
+        public $Nom ;
+        public $Prenom ;
+        public $Mail ;
+        public $Adresse ;
+        public $Cp ;
+        public $Ville ;
+        public $DateDeNaissance ;
 
-        public function __construct($Nom, $Prenom, $Mail, $Adresse, $Cp, $Ville, $DateDeNaissance, $Id) {
+        public function __construct($Nom, $Prenom, $Mail, $Adresse, $Cp, $Ville, $DateDeNaissance) {
             $this->Nom=$Nom;
             $this->Prenom=$Prenom;
             $this->Mail=$Mail;
@@ -17,7 +16,7 @@
             $this->Cp=$Cp;
             $this->Ville=$Ville;
             $this->DateDeNaissance=$DateDeNaissance;
-            $this->Id=$Id;
+            
         }
         
         public function Modifier_info($information) {
