@@ -17,7 +17,7 @@ class Autoloader{
      * @param $class string Le nom de la classe à charger
      */
     static function autoload($class){
-        require_once 'include/class/' . $class . '.class.php';
+        require_once 'Class/' . $class . '.class.php';
     }
 
 }

@@ -1,13 +1,21 @@
 <?php
 
-require 'Personne';
+
 
 class Client extends Personne {
-    protected $DateDeCréationDeCompte=time();
-    protected $Password='';
-    public static $InfoClient=[];
+    public $DateDeCréationDeCompte;
+    public $Password;
+    
 
-    public function __construct($DateDeCréationDeCompte, $Password){
+    public function __construct($Nom, $Prenom, $Mail, $Adresse, $Cp, $Ville, $DateDeNaissance, $DateDeCréationDeCompte, $Password){
+       parent::__construct($Nom, $Prenom, $Mail, $Adresse, $Cp, $Ville, $DateDeNaissance);
+        $this->Nom=$Nom;
+            $this->Prenom=$Prenom;
+            $this->Mail=$Mail;
+            $this->Adresse=$Adresse;
+            $this->Cp=$Cp;
+            $this->Ville=$Ville;
+            $this->DateDeNaissance=$DateDeNaissance;
         $this->DateDeCréationDeCompte=$DateDeCréationDeCompte;
         $this->Password=$Password;
     }
@@ -16,9 +24,9 @@ class Client extends Personne {
         echo $this->DateDeCréationDeCompte;
     }
 
-    protected static function New($Nom, $Prenom, $Mail, $Adresse,$Cp, $Ville, $DateDeNaissance, $Id){
+    public function New($Nom, $Prenom, $Mail, $Adresse,$Cp, $Ville, $DateDeNaissance){
         self::$InfoClient = [$Nom, $Prenom, $Mail,
-        $Adresse,$Cp, $Ville, $DateDeNaissance, $Id];
+        $Adresse,$Cp, $Ville, $DateDeNaissance];
     }
 
     protected static function read(){
@@ -31,6 +39,10 @@ class Client extends Personne {
 
     protected function Delete(){
         
+    }
+
+    public function helloWord(){
+        echo "hello Word";
     }
 
     protected function Authentification(){
